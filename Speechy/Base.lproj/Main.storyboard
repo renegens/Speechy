@@ -21,35 +21,71 @@
                                 <animations/>
                                 <state key="normal" image="microphone"/>
                                 <connections>
-                                    <action selector="recordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TMu-OB-7Db"/>
+                                    <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z3G-VK-aMU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu8-nw-9F5">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jc6-CT-zMU">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" image="stopbutton"/>
+                                <connections>
+                                    <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z2Y-6Y-Pax"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="jc6-CT-zMU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1la-V2-lqi"/>
                             <constraint firstItem="fVd-SM-Hjq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Aa-8H-k9z"/>
+                            <constraint firstItem="jc6-CT-zMU" firstAttribute="top" secondItem="Vu8-nw-9F5" secondAttribute="bottom" constant="85" id="9IK-EG-xf4"/>
+                            <constraint firstItem="Vu8-nw-9F5" firstAttribute="top" secondItem="fVd-SM-Hjq" secondAttribute="bottom" constant="23" id="ElR-Rx-eCD"/>
+                            <constraint firstItem="Vu8-nw-9F5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LNC-f9-Ofo"/>
                             <constraint firstItem="fVd-SM-Hjq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NNB-Ej-lIt"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="fVd-SM-Hjq"/>
+                                <exclude reference="Vu8-nw-9F5"/>
+                                <exclude reference="jc6-CT-zMU"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="9Aa-8H-k9z"/>
                                 <exclude reference="NNB-Ej-lIt"/>
+                                <exclude reference="ElR-Rx-eCD"/>
+                                <exclude reference="LNC-f9-Ofo"/>
+                                <exclude reference="1la-V2-lqi"/>
+                                <exclude reference="9IK-EG-xf4"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="fVd-SM-Hjq"/>
+                                <include reference="Vu8-nw-9F5"/>
+                                <include reference="jc6-CT-zMU"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="9Aa-8H-k9z"/>
                                 <include reference="NNB-Ej-lIt"/>
+                                <include reference="ElR-Rx-eCD"/>
+                                <include reference="LNC-f9-Ofo"/>
+                                <include reference="1la-V2-lqi"/>
+                                <include reference="9IK-EG-xf4"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="micButton" destination="fVd-SM-Hjq" id="X6y-qP-Loh"/>
+                        <outlet property="recordingButton" destination="Vu8-nw-9F5" id="soO-J2-8nz"/>
+                        <outlet property="stopButton" destination="jc6-CT-zMU" id="kON-g0-dv3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,5 +93,6 @@
     </scenes>
     <resources>
         <image name="microphone" width="100" height="100"/>
+        <image name="stopbutton" width="50" height="50"/>
     </resources>
 </document>
