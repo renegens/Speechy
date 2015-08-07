@@ -131,10 +131,28 @@
                                     <action selector="stopAction:" destination="EP7-U0-A2A" eventType="touchUpInside" id="qPi-53-WIG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZa-tT-Ide">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" image="chipMunk"/>
+                                <connections>
+                                    <action selector="chipMunkAction:" destination="EP7-U0-A2A" eventType="touchUpInside" id="stu-Ts-KP6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUG-S3-aCj">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" image="vader"/>
+                                <connections>
+                                    <action selector="vaderAction:" destination="EP7-U0-A2A" eventType="touchUpInside" id="yqo-Ku-jT4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="EZa-tT-Ide" firstAttribute="leading" secondItem="oPv-cJ-Y3j" secondAttribute="leadingMargin" constant="30" id="4QU-78-Oia"/>
+                            <constraint firstItem="EZa-tT-Ide" firstAttribute="top" secondItem="lJv-c7-wmg" secondAttribute="bottom" constant="186" id="9e5-KR-dG8"/>
                             <constraint firstItem="ywN-uy-b7I" firstAttribute="leading" secondItem="oPv-cJ-Y3j" secondAttribute="leadingMargin" constant="20" id="AI4-Ob-Lhc">
                                 <variation key="widthClass=compact" constant="30"/>
                             </constraint>
@@ -142,8 +160,10 @@
                             <constraint firstItem="ywN-uy-b7I" firstAttribute="top" secondItem="lJv-c7-wmg" secondAttribute="bottom" constant="30" id="JED-XO-a4V">
                                 <variation key="widthClass=compact" constant="48"/>
                             </constraint>
+                            <constraint firstItem="tUG-S3-aCj" firstAttribute="top" secondItem="lJv-c7-wmg" secondAttribute="bottom" constant="186" id="NRw-ZK-J9m"/>
                             <constraint firstItem="1MK-tP-SKk" firstAttribute="leading" secondItem="oPv-cJ-Y3j" secondAttribute="leadingMargin" constant="155" id="OAZ-5h-MTr"/>
                             <constraint firstItem="MRv-AM-BPb" firstAttribute="top" secondItem="lJv-c7-wmg" secondAttribute="bottom" constant="48" id="fuo-Hb-c4G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tUG-S3-aCj" secondAttribute="trailing" constant="30" id="jXL-G5-nmQ"/>
                             <constraint firstItem="XSv-zS-HYV" firstAttribute="top" secondItem="1MK-tP-SKk" secondAttribute="bottom" constant="55" id="sk5-SU-2YW"/>
                         </constraints>
                         <variation key="default">
@@ -151,14 +171,20 @@
                                 <exclude reference="ywN-uy-b7I"/>
                                 <exclude reference="MRv-AM-BPb"/>
                                 <exclude reference="1MK-tP-SKk"/>
+                                <exclude reference="EZa-tT-Ide"/>
+                                <exclude reference="tUG-S3-aCj"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="sk5-SU-2YW"/>
-                                <exclude reference="OAZ-5h-MTr"/>
-                                <exclude reference="AWn-4F-6ll"/>
-                                <exclude reference="fuo-Hb-c4G"/>
                                 <exclude reference="AI4-Ob-Lhc"/>
                                 <exclude reference="JED-XO-a4V"/>
+                                <exclude reference="4QU-78-Oia"/>
+                                <exclude reference="9e5-KR-dG8"/>
+                                <exclude reference="AWn-4F-6ll"/>
+                                <exclude reference="fuo-Hb-c4G"/>
+                                <exclude reference="NRw-ZK-J9m"/>
+                                <exclude reference="jXL-G5-nmQ"/>
+                                <exclude reference="OAZ-5h-MTr"/>
+                                <exclude reference="sk5-SU-2YW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -166,14 +192,20 @@
                                 <include reference="ywN-uy-b7I"/>
                                 <include reference="MRv-AM-BPb"/>
                                 <include reference="1MK-tP-SKk"/>
+                                <include reference="EZa-tT-Ide"/>
+                                <include reference="tUG-S3-aCj"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="sk5-SU-2YW"/>
-                                <include reference="OAZ-5h-MTr"/>
-                                <include reference="AWn-4F-6ll"/>
-                                <include reference="fuo-Hb-c4G"/>
                                 <include reference="AI4-Ob-Lhc"/>
                                 <include reference="JED-XO-a4V"/>
+                                <include reference="4QU-78-Oia"/>
+                                <include reference="9e5-KR-dG8"/>
+                                <include reference="AWn-4F-6ll"/>
+                                <include reference="fuo-Hb-c4G"/>
+                                <include reference="NRw-ZK-J9m"/>
+                                <include reference="jXL-G5-nmQ"/>
+                                <include reference="OAZ-5h-MTr"/>
+                                <include reference="sk5-SU-2YW"/>
                             </mask>
                         </variation>
                     </view>
@@ -203,9 +235,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chipMunk" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="rabbit" width="100" height="100"/>
         <image name="snail" width="100" height="100"/>
         <image name="stopbutton" width="50" height="50"/>
+        <image name="vader" width="100" height="100"/>
     </resources>
 </document>

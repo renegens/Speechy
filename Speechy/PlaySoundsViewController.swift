@@ -13,12 +13,17 @@ class PlaySoundsViewController: UIViewController {
     
     var audioPlayer:AVAudioPlayer!
     var receivedAudio: RecordedAudio!
+    var audioEngine: AVAudioEngine!
+    var audioFile:AVAudioFile!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        audioEngine = AVAudioEngine()
+        
         do{
         try audioPlayer =  AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
+        try audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl)
             audioPlayer.enableRate = true
         }catch{
             print(error)
@@ -33,7 +38,7 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func snailAction(sender: UIButton) {
         
-       audioPlayer(0.5)
+       audioPlayer(1)
     }
     
     @IBAction func rabbitAction(sender: UIButton) {
@@ -45,6 +50,15 @@ class PlaySoundsViewController: UIViewController {
         
         audioPlayer.stop()
     }
+    @IBAction func chipMunkAction(sender: UIButton) {
+        
+        playAudioWithVariablePitch(1000)
+    }
+    
+    @IBAction func vaderAction(sender: UIButton) {
+        playAudioWithVariablePitch(-1000)
+    }
+    
     
     func audioPlayer(rate: Float){
         
@@ -52,5 +66,30 @@ class PlaySoundsViewController: UIViewController {
         audioPlayer.rate = rate
         audioPlayer.play()
         
+    }
+    
+    func playAudioWithVariablePitch(pitch: Float){
+        audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
+        
+        let audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        
+        let changePitchEffect = AVAudioUnitTimePitch()
+        changePitchEffect.pitch = pitch
+        audioEngine.attachNode(changePitchEffect)
+        
+        audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+        audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        do {
+        try audioEngine.start()
+        }catch{
+            //something
+        }
+        
+        audioPlayerNode.play()
     }
 }
