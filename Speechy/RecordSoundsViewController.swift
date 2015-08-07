@@ -2,7 +2,7 @@
 //  RecordSoundsViewController.swift
 //  Speechy
 //
-//  Created by Giwrgos Gens on 07/08/15.
+//  Created by Giwrgos Gens on 07/04/15.
 //  Copyright © 2015 Giwrgos Gens. All rights reserved.
 //
 
@@ -19,6 +19,7 @@ class RecordSoundsViewController: UIViewController,AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var recordSession: AVAudioSession!
+    var recordedAudio: RecordedAudio!
     
     
     
@@ -69,7 +70,35 @@ class RecordSoundsViewController: UIViewController,AVAudioRecorderDelegate {
         audioRecorder.meteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
-
+        
+    }
+    
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+        
+        if flag {
+            //save the recorded audio
+            recordedAudio = RecordedAudio()
+            recordedAudio.filePathUrl = recorder.url
+            recordedAudio.title = recorder.url.lastPathComponent
+        
+            //move to the seque
+            self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
+        }else{
+            print("Recording not sucessful")
+            micButton.enabled = true
+            recordingButton.hidden = true
+            stopButton.hidden = true
+            
+        }
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "stopRecording" {
+            let playSoundsVC:PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
+            let data = sender as! RecordedAudio
+            playSoundsVC.receivedAudio = data
+        }
     }
 
     @IBAction func stopButton(sender: UIButton) {

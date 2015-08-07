@@ -2,7 +2,7 @@
 //  PlaySoundsViewController.swift
 //  Speechy
 //
-//  Created by Giwrgos Gens on 07/08/15.
+//  Created by Giwrgos Gens on 07/04/15.
 //  Copyright © 2015 Giwrgos Gens. All rights reserved.
 //
 
@@ -12,15 +12,18 @@ import AVFoundation
 class PlaySoundsViewController: UIViewController {
     
     var audioPlayer:AVAudioPlayer!
+    var receivedAudio: RecordedAudio!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3")!), fileTypeHint:nil)
+
+        do{
+        try audioPlayer =  AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
             audioPlayer.enableRate = true
-        } catch {
-            //Handle the error
+        }catch{
+            print(error)
         }
+        
     }
 
     override func didReceiveMemoryWarning() {

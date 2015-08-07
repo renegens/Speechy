@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="15A243d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hVe-ce-6p0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -38,7 +39,6 @@
                                 <state key="normal" image="stopbutton"/>
                                 <connections>
                                     <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z2Y-6Y-Pax"/>
-                                    <segue destination="EP7-U0-A2A" kind="show" id="Tr2-1M-hmg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -88,6 +88,7 @@
                         <outlet property="micButton" destination="fVd-SM-Hjq" id="X6y-qP-Loh"/>
                         <outlet property="recordingButton" destination="Vu8-nw-9F5" id="soO-J2-8nz"/>
                         <outlet property="stopButton" destination="jc6-CT-zMU" id="kON-g0-dv3"/>
+                        <segue destination="EP7-U0-A2A" kind="show" identifier="stopRecording" id="9DT-gV-cRA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -152,12 +153,12 @@
                                 <exclude reference="1MK-tP-SKk"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="AI4-Ob-Lhc"/>
-                                <exclude reference="JED-XO-a4V"/>
+                                <exclude reference="sk5-SU-2YW"/>
+                                <exclude reference="OAZ-5h-MTr"/>
                                 <exclude reference="AWn-4F-6ll"/>
                                 <exclude reference="fuo-Hb-c4G"/>
-                                <exclude reference="OAZ-5h-MTr"/>
-                                <exclude reference="sk5-SU-2YW"/>
+                                <exclude reference="AI4-Ob-Lhc"/>
+                                <exclude reference="JED-XO-a4V"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -167,12 +168,12 @@
                                 <include reference="1MK-tP-SKk"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="AI4-Ob-Lhc"/>
-                                <include reference="JED-XO-a4V"/>
+                                <include reference="sk5-SU-2YW"/>
+                                <include reference="OAZ-5h-MTr"/>
                                 <include reference="AWn-4F-6ll"/>
                                 <include reference="fuo-Hb-c4G"/>
-                                <include reference="OAZ-5h-MTr"/>
-                                <include reference="sk5-SU-2YW"/>
+                                <include reference="AI4-Ob-Lhc"/>
+                                <include reference="JED-XO-a4V"/>
                             </mask>
                         </variation>
                     </view>
