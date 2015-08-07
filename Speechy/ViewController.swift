@@ -22,7 +22,8 @@ class ViewController: UIViewController {
 
     @IBAction func recordButton(sender: UIButton) {
         //TODO: show text recording
-        //TODO: recrod user voice
+        //TODO: record user voice
+    
         print("Record button pressed")
     }
 
