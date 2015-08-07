@@ -59,10 +59,10 @@
                                 <exclude reference="jc6-CT-zMU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="9Aa-8H-k9z"/>
-                                <exclude reference="NNB-Ej-lIt"/>
                                 <exclude reference="ElR-Rx-eCD"/>
                                 <exclude reference="LNC-f9-Ofo"/>
+                                <exclude reference="9Aa-8H-k9z"/>
+                                <exclude reference="NNB-Ej-lIt"/>
                                 <exclude reference="1la-V2-lqi"/>
                                 <exclude reference="9IK-EG-xf4"/>
                             </mask>
@@ -74,10 +74,10 @@
                                 <include reference="jc6-CT-zMU"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="9Aa-8H-k9z"/>
-                                <include reference="NNB-Ej-lIt"/>
                                 <include reference="ElR-Rx-eCD"/>
                                 <include reference="LNC-f9-Ofo"/>
+                                <include reference="9Aa-8H-k9z"/>
+                                <include reference="NNB-Ej-lIt"/>
                                 <include reference="1la-V2-lqi"/>
                                 <include reference="9IK-EG-xf4"/>
                             </mask>
@@ -103,6 +103,7 @@
                         <viewControllerLayoutGuide type="bottom" id="XSv-zS-HYV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oPv-cJ-Y3j">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywN-uy-b7I">
@@ -113,29 +114,65 @@
                                     <action selector="snailAction:" destination="EP7-U0-A2A" eventType="touchUpInside" id="JlA-pj-BP8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRv-AM-BPb">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" image="rabbit"/>
+                                <connections>
+                                    <action selector="rabbitAction:" destination="EP7-U0-A2A" eventType="touchUpInside" id="xlx-hw-IoB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MK-tP-SKk">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" image="stopbutton"/>
+                                <connections>
+                                    <action selector="stopAction:" destination="EP7-U0-A2A" eventType="touchUpInside" id="qPi-53-WIG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ywN-uy-b7I" firstAttribute="leading" secondItem="oPv-cJ-Y3j" secondAttribute="leadingMargin" constant="20" id="AI4-Ob-Lhc"/>
-                            <constraint firstItem="ywN-uy-b7I" firstAttribute="top" secondItem="lJv-c7-wmg" secondAttribute="bottom" constant="48" id="JED-XO-a4V"/>
+                            <constraint firstItem="ywN-uy-b7I" firstAttribute="leading" secondItem="oPv-cJ-Y3j" secondAttribute="leadingMargin" constant="20" id="AI4-Ob-Lhc">
+                                <variation key="widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="MRv-AM-BPb" secondAttribute="trailing" constant="30" id="AWn-4F-6ll"/>
+                            <constraint firstItem="ywN-uy-b7I" firstAttribute="top" secondItem="lJv-c7-wmg" secondAttribute="bottom" constant="30" id="JED-XO-a4V">
+                                <variation key="widthClass=compact" constant="48"/>
+                            </constraint>
+                            <constraint firstItem="1MK-tP-SKk" firstAttribute="leading" secondItem="oPv-cJ-Y3j" secondAttribute="leadingMargin" constant="155" id="OAZ-5h-MTr"/>
+                            <constraint firstItem="MRv-AM-BPb" firstAttribute="top" secondItem="lJv-c7-wmg" secondAttribute="bottom" constant="48" id="fuo-Hb-c4G"/>
+                            <constraint firstItem="XSv-zS-HYV" firstAttribute="top" secondItem="1MK-tP-SKk" secondAttribute="bottom" constant="55" id="sk5-SU-2YW"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ywN-uy-b7I"/>
+                                <exclude reference="MRv-AM-BPb"/>
+                                <exclude reference="1MK-tP-SKk"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="AI4-Ob-Lhc"/>
                                 <exclude reference="JED-XO-a4V"/>
+                                <exclude reference="AWn-4F-6ll"/>
+                                <exclude reference="fuo-Hb-c4G"/>
+                                <exclude reference="OAZ-5h-MTr"/>
+                                <exclude reference="sk5-SU-2YW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ywN-uy-b7I"/>
+                                <include reference="MRv-AM-BPb"/>
+                                <include reference="1MK-tP-SKk"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="AI4-Ob-Lhc"/>
                                 <include reference="JED-XO-a4V"/>
+                                <include reference="AWn-4F-6ll"/>
+                                <include reference="fuo-Hb-c4G"/>
+                                <include reference="OAZ-5h-MTr"/>
+                                <include reference="sk5-SU-2YW"/>
                             </mask>
                         </variation>
                     </view>
@@ -166,6 +203,7 @@
     </scenes>
     <resources>
         <image name="microphone" width="100" height="100"/>
+        <image name="rabbit" width="100" height="100"/>
         <image name="snail" width="100" height="100"/>
         <image name="stopbutton" width="50" height="50"/>
     </resources>
