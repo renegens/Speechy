@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class RecordSoundsViewController: UIViewController {
+class RecordSoundsViewController: UIViewController,AVAudioRecorderDelegate {
 
    
     @IBOutlet weak var micButton: UIButton!
@@ -17,6 +17,8 @@ class RecordSoundsViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     var audioRecorder: AVAudioRecorder!
+    var audioPlayer: AVAudioPlayer!
+    var recordSession: AVAudioSession!
     
     
     
@@ -43,48 +45,46 @@ class RecordSoundsViewController: UIViewController {
         recordingButton.hidden = false
         stopButton.hidden = false
         
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        //setting name and path for file
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
         let recordingName = "my_audio.wav"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
+        let recordSettings = [AVEncoderAudioQualityKey: AVAudioQuality.Min.rawValue,
+            AVEncoderBitRateKey: 16,
+            AVNumberOfChannelsKey: 2,
+            AVSampleRateKey: 44100.0]
         print(filePath)
-        
-        let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
-            AVFormatIDKey : NSNumber(int: Int32(kAudioFormatAppleLossless)),
-            AVNumberOfChannelsKey : NSNumber(int: 2),
-            AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Max.rawValue))]
-        
         
         let session = AVAudioSession.sharedInstance()
         do {
-        try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            audioRecorder = try AVAudioRecorder(URL: filePath!, settings: recordSettings)
-            audioRecorder.meteringEnabled = true
-            audioRecorder.prepareToRecord()
-            audioRecorder.record()
-        }catch{
-            audioRecorder = nil
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            audioRecorder = try AVAudioRecorder(URL: filePath!, settings: recordSettings as! [String : AnyObject])
+        } catch _ {
+            print("Error")
         }
         
-    
+        audioRecorder.delegate = self
+        audioRecorder.meteringEnabled = true
+        audioRecorder.prepareToRecord()
+        audioRecorder.record()
 
     }
 
     @IBAction func stopButton(sender: UIButton) {
         
-        let audioSession = AVAudioSession.sharedInstance()
-        do{
-            try audioSession.setActive(false)
-        }catch{
-           //do something
-        }
-
         micButton.enabled = true
         recordingButton.hidden = true
         stopButton.hidden = true
         audioRecorder.stop()
-   
+        let audioSession = AVAudioSession.sharedInstance()
+        do{
+            try audioSession.setActive(false)
+        }
+        catch{
+             print("Error")
+        }
     }
 }
 
