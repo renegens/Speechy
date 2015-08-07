@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="15A243d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="15A243d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hVe-ce-6p0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Record-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Speechy" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,6 +38,7 @@
                                 <state key="normal" image="stopbutton"/>
                                 <connections>
                                     <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z2Y-6Y-Pax"/>
+                                    <segue destination="EP7-U0-A2A" kind="show" id="Tr2-1M-hmg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -81,6 +83,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Record" id="osK-zZ-ofw"/>
                     <connections>
                         <outlet property="micButton" destination="fVd-SM-Hjq" id="X6y-qP-Loh"/>
                         <outlet property="recordingButton" destination="Vu8-nw-9F5" id="soO-J2-8nz"/>
@@ -89,10 +92,81 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="909" y="1195"/>
+        </scene>
+        <!--Play Sounds View Controller-->
+        <scene sceneID="lxV-ep-sh9">
+            <objects>
+                <viewController id="EP7-U0-A2A" customClass="PlaySoundsViewController" customModule="Speechy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lJv-c7-wmg"/>
+                        <viewControllerLayoutGuide type="bottom" id="XSv-zS-HYV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oPv-cJ-Y3j">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywN-uy-b7I">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" image="snail"/>
+                                <connections>
+                                    <action selector="snailAction:" destination="EP7-U0-A2A" eventType="touchUpInside" id="JlA-pj-BP8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ywN-uy-b7I" firstAttribute="leading" secondItem="oPv-cJ-Y3j" secondAttribute="leadingMargin" constant="20" id="AI4-Ob-Lhc"/>
+                            <constraint firstItem="ywN-uy-b7I" firstAttribute="top" secondItem="lJv-c7-wmg" secondAttribute="bottom" constant="48" id="JED-XO-a4V"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ywN-uy-b7I"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="AI4-Ob-Lhc"/>
+                                <exclude reference="JED-XO-a4V"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ywN-uy-b7I"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="AI4-Ob-Lhc"/>
+                                <include reference="JED-XO-a4V"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J65-yH-Wbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1707" y="1195"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="F9E-f9-CbM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hVe-ce-6p0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="u6d-a7-sOB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4yz-qn-VLc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u8y-bB-OVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85.5" y="1195"/>
         </scene>
     </scenes>
     <resources>
         <image name="microphone" width="100" height="100"/>
+        <image name="snail" width="100" height="100"/>
         <image name="stopbutton" width="50" height="50"/>
     </resources>
 </document>
